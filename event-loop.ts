@@ -5,10 +5,12 @@ function CheckEventLoop(): void {
   const focused = document.hasFocus()
   if (loaded && focused && !errorOccurred) {
     HideMessage()
+    ShowCanvas()
     if (animationFrame === null) {
       animationFrame = requestAnimationFrame(OnFrame)
     }
   } else {
+    HideCanvas()
     if (loaded && !errorOccurred) {
       ShowMessage(`(paused)`)
     }
