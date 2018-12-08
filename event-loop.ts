@@ -27,6 +27,10 @@ function CheckEventLoop(): void {
 
 function OnFrame(time: number): void {
   animationFrame = null
+  const gl = GetGl()
+  gl.canvas.width = gl.canvas.clientWidth
+  gl.canvas.height = gl.canvas.clientHeight
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
   animationFrame = requestAnimationFrame(OnFrame)
 }
 
