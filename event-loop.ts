@@ -3,7 +3,7 @@ let loaded = false
 
 function CheckEventLoop(): void {
   const focused = document.hasFocus()
-  if (loaded && focused && !errorOccurred) {
+  if (loaded && focused && !errorOccurred && !contextLost) {
     HideMessage()
     ShowCanvas()
     if (animationFrame === null) {
@@ -12,7 +12,11 @@ function CheckEventLoop(): void {
   } else {
     HideCanvas()
     if (loaded && !errorOccurred) {
-      ShowMessage(`(paused)`)
+      if (!focused) {
+        ShowMessage(`(paused)`)
+      } else {
+        ShowMessage(`Waiting for WebGL restart...`)
+      }
     }
     if (animationFrame !== null) {
       cancelAnimationFrame(animationFrame)
