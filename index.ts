@@ -6,5 +6,6 @@
 /// <reference path="gl.ts" />
 /// <reference path="gl-texture.ts" />
 /// <reference path="gl-buffer.ts" />
+/// <reference path="gl-program.ts" />
 ///// <reference path="gl-chaos-monkey.ts" />
 /// <reference path="event-loop.ts" />
